@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3001;
 //instantiate server
 const app = express();
 
+//middleware
+app.use(express.static('public'));
+
 //pass through these functions first
 // parse incoming string or array data. parse into key/value pairings
 app.use(express.urlencoded({ extended: true }));
@@ -131,8 +134,22 @@ app.post('/api/animals', (req, res) => {
     res.json(animal);
 });
 
+//root route of the server(create homepage). This gets index.html to be served by the Express.js server
+app.get('/', (req, res) => {
+    //respond with an html page to display in the browser. need to input directory(tell where to find the file)
+    //using 'path' will work in any server environment
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
 
 //listen for requests
 app.listen(PORT, () => {
-    console.log(`API server now on port ${PORT}!`);
+    console.log(`API server now on http://localhost:${PORT}`);
 });

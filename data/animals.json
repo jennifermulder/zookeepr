@@ -108,6 +108,24 @@
         "loving"
       ],
       "id": "10"
+    },
+    {
+      "name": "fyhv",
+      "species": "vhvkj",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "zany"
+      ],
+      "id": "11"
+    },
+    {
+      "name": "fyhv1",
+      "species": "vhvkj1",
+      "diet": "folivore",
+      "personalityTraits": [
+        "anxious"
+      ],
+      "id": "12"
     }
   ]
 }
